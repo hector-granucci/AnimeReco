@@ -1,7 +1,7 @@
 const { Sequelize } = require("sequelize");
 const Animes = require("./models/Animes")
 const User = "postgres";
-const pass = "marvel";
+
 const dbname = "anime";
 
 const database = new Sequelize(
