@@ -11,6 +11,10 @@ database.define("Animes", {
         type: DataTypes.STRING,
         allowNull: true,
     },
+    Imagen: {
+        type: DataTypes.STRING,
+        allowNull: true,
+    },
     Sinopsis: {
         type: DataTypes.STRING,
         allowNull: true,

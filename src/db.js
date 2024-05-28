@@ -1,11 +1,14 @@
 const { Sequelize } = require("sequelize");
 const Animes = require("./models/Animes")
-const User = "postgres";
 
-const dbname = "anime";
+require('dotenv').config();
+
+const user = process.env.USER
+const pass = process.env.PASS
+const dbname = process.env.DBNAME
 
 const database = new Sequelize(
-    `postgres://${User}:${pass}@localhost:5432/${dbname}`,
+    `postgres://${user}:${pass}@localhost:5432/${dbname}`,
     {logging: false }
 );
 

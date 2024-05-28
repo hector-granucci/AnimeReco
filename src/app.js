@@ -17,8 +17,8 @@ server.get("/animes", async (req,res) => {
 
 server.post("/animes", async (req,res) => {
     try {
-        const {Nombre,  Sinopsis, Genero, Episodios,  Recomendacion} = req.body;
-        const newAnimes = await Animes.create ({Nombre,  Sinopsis, Genero, Episodios,  Recomendacion});
+        const {Nombre, Imagen,  Sinopsis, Genero, Episodios,  Recomendacion} = req.body;
+        const newAnimes = await Animes.create ({Nombre, Imagen,  Sinopsis, Genero, Episodios,  Recomendacion});
         res.status(200).send(newAnimes)
     } catch (error) {
         res.status(400).send(error.message)
