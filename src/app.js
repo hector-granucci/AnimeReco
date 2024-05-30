@@ -25,6 +25,23 @@ server.post("/animes", async (req,res) => {
     }
 })
 
+server.put("/animes/:id", async (req, res) => {
+    const { id } = req.params;
+    const { Nombre, Imagen, Sinopsis, Genero, Episodios, Recomendacion } = req.body;
+
+    try {
+        const animes = await Animes.findByPk(id);
+        if (!animes) {
+            return res.status(404).send({ error: 'Anime not found' });
+        }
+
+        await animes.update({ Nombre, Imagen, Sinopsis, Genero, Episodios, Recomendacion });
+        res.status(200).json(animes);
+    } catch (error) {
+        res.status(400).send({ error: error.message });
+    }
+});
+
 server.delete("/animes", async (req,res) => {
     try {
         const {id} = req.body;
